@@ -12,4 +12,14 @@ const registerUser = (req, res) => {
     });
 }
 
-module.exports = { registerUser };
+const getUser = (req, res) => {
+    const user = userModel.getUser();
+
+    res.status(200).json({
+        success: true,
+        message: 'User fetched successfully',
+        data: user
+    });
+}
+
+module.exports = { registerUser, getUser };

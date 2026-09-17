@@ -7,6 +7,13 @@ const User = {
             phone: userData.phone,
             address: userData.address
         }
+    },
+    getUser: () => {
+        return {
+            id : "123",
+            name: "kashif",
+            email: "kashif@gmail.com"
+        }
     }
 }
 
