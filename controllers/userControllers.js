@@ -1,9 +1,9 @@
 const userModel = require('../models/userModels');
 
-const registerUser = (req, res) => {
+const registerUser = async (req, res) => {
     const { name, email, password, phone, address } = req.body;
 
-    const new_user = userModel.register({ name, email, password, phone, address });
+    const new_user = await userModel.register({ name, email, password, phone, address });
 
     res.status(201).json({
         success: true,
@@ -12,14 +12,14 @@ const registerUser = (req, res) => {
     });
 }
 
-const getUser = (req, res) => {
-    const user = userModel.getUser();
+const getUsers = async (req, res) => {
+    const users = await userModel.getUsers();
 
     res.status(200).json({
         success: true,
         message: 'User fetched successfully',
-        data: user
+        data: users
     });
 }
 
-module.exports = { registerUser, getUser };
+module.exports = { registerUser, getUsers };
