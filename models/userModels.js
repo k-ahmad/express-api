@@ -41,6 +41,9 @@ const User = {
   getUsers: () => {
     return UserSchema.find();
   },
+   getUserById: (id) => {
+    return UserSchema.findById(id);
+  },
 };
 
 module.exports = User;

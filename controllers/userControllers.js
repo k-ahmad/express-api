@@ -21,5 +21,15 @@ const getUsers = async (req, res) => {
         data: users
     });
 }
+const getUserById = async (req, res) => {
+    let userId = req.params.id;
+    const user = await userModel.getUserById(userId);
 
-module.exports = { registerUser, getUsers };
+    res.status(200).json({
+        success: true,
+        message: 'User fetched successfully',
+        data: user
+    });
+}
+
+module.exports = { registerUser, getUsers, getUserById };
