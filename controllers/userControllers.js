@@ -75,5 +75,20 @@ const updateUser = async (req, res) => {
     });
   }
 };
+const deleteUser = async (req, res) => {
+  try {
+    const deleted = await userModel.delete(req.params.id);
 
-module.exports = { registerUser, getUsers, getUserById, updateUser };
+    res.status(200).json({
+      success: true,
+      message: "User deleted successfully",
+    });
+  } catch (error) {
+    res.status(500).json({
+      message: "deleted failed",
+      error: error.message,
+    });
+  }
+};
+
+module.exports = { registerUser, getUsers, getUserById, updateUser, deleteUser };

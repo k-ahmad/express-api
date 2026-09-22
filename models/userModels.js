@@ -49,6 +49,12 @@ const User = {
       new: true,
       runValidators: true
     })
+  },
+  delete: (id) => {
+    return UserSchema.findByIdAndDelete(id, {
+      new: true,
+      runValidators: true
+    })
   }
 };
 
