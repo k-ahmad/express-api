@@ -44,6 +44,12 @@ const User = {
    getUserById: (id) => {
     return UserSchema.findById(id);
   },
+  updata: (id, data) => {
+    return UserSchema.findByIdAndUpdate(id, data, {
+      new: true,
+      runValidators: true
+    })
+  }
 };
 
 module.exports = User;
